@@ -110,7 +110,7 @@ script:
   - catkin build
   - source devel/setup.bash
   - catkin_lint $CI_SOURCE_PATH
-  - cd ~/catkin_ws/src/artable-detectors
+  - cd ~/catkin_ws/src/arcor-detectors
   - chmod +x run_tests.sh
   - ./run_tests.sh
 
