@@ -36,10 +36,7 @@ class ArCodeDetector:
             aid = int(arcode.id)
             # list of allowed object ids
             # TODO load from param
-            if aid not in [50, 51, 52, 53, 54, 55, 56, 57, 60, 61, 62, 63, 1001, 1002, 1003, 1004, 1005, 1006, 1007,
-                           1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022,
-                           1023, 1024, 1025, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 3001, 3002, 3003, 3004,
-                           5001, 6001, 6002, 7001, 7002]:
+            if aid not in [5001, 10001, 10002, 10003, 10004, 10005, 10006, 10007, 10008, 10009, 10010, 10011, 10012, 10013, 103, 118, 56, 122]:
                 continue
 
             if aid not in self.objects_cache:
@@ -49,19 +46,12 @@ class ArCodeDetector:
 
                 object_type = None
 
-                if aid in [50, 51, 52, 53, 54, 55, 56, 57, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010,
-                           1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025]:
-                    object_type = self.art.get_object_type("Spojka")
-                elif aid in [60, 61, 62, 63, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008]:
-                    object_type = self.art.get_object_type("Kratka_noha")
-                elif aid in [60, 61, 62, 63, 3001, 3002, 3003, 3004]:
-                    object_type = self.art.get_object_type("Dlouha_noha")
+                if aid in [50, 55, 103, 118, 56]:
+                    object_type = self.art.get_object_type("desticka")
+                elif aid in [10001, 10002, 10003, 10004, 10005, 10006, 10007, 10008, 10009, 10010, 10011, 10012, 10013]:
+                    object_type = self.art.get_object_type("mala_desticka")                        
                 elif aid in [5001]:
                     object_type = self.art.get_object_type("Modry_kontejner")
-                elif aid in [6001, 6002]:
-                    object_type = self.art.get_object_type("Bily_kontejner_velky")
-                elif aid in [7001, 7002]:
-                    object_type = self.art.get_object_type("Bily_kontejner_maly")
                 if object_type is None:
 
                     # error or unknown object - let's ignore it
